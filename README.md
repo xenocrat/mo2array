@@ -8,7 +8,7 @@ mo2array is a PHP class for decoding gettext machine object (.mo) files to array
 
 ## Usage
 
-Decode a .mo file:
+Decode .mo file contents:
 
     $mo2array = new mo2array();
     $mo = file_get_contents("example.mo");
@@ -60,4 +60,4 @@ The above example will output:
 
 ## Return values
 
-Returns an array of the original strings and translation strings discovered in the .mo file. Returns `false` if the data cannot be decoded.
+Returns an array of the original strings and translation strings discovered in the .mo file. Returns `false` if the file contents cannot be decoded.
