@@ -26,10 +26,10 @@
                 return false;
 
             $unpack = ($big_endian) ?
-                "H8magic/Nformat/Nnum/Nor/Ntr" :
-                "H8magic/Vformat/Vnum/Vor/Vtr" ;
+                "Nformat/Nnum/Nor/Ntr" :
+                "Vformat/Vnum/Vor/Vtr" ;
 
-            $mo_offset = unpack($unpack, $mo);
+            $mo_offset = unpack($unpack, $mo, 4);
 
             $unpack = ($big_endian) ?
                 "Nlength/Noffset" :
