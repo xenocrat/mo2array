@@ -1,6 +1,6 @@
 ## What is this?
 
-mo2array is a PHP class for decoding gettext machine object (.mo) files to array.
+mo2array is a PHP class for decoding GNU gettext machine object (.mo) files to array.
 
 ## Requirements
 
