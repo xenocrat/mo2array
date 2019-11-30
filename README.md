@@ -60,4 +60,4 @@ The above example will output:
 
 ## Return values
 
-Returns an array of arrays containing the msgid and corresponding msgstr data discovered in the .mo file. Returns `false` if the data cannot be decoded.
+Returns an array of the original strings and translation strings discovered in the .mo file. Returns `false` if the data cannot be decoded.
