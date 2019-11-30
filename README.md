@@ -60,3 +60,5 @@ The above example will output:
 ## Return values
 
 Returns an array of the original strings and translation strings discovered in the .mo file. Returns `false` if the file contents cannot be decoded.
+
+Strings discovered in the .mo file are returned as encoded.
