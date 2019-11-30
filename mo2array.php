@@ -5,7 +5,7 @@
         const MO_SIZEOF_HEADER = 28;
         const LONG_LONG        = 8;
 
-        public function decode($mo) {
+        public static function decode($mo) {
             $array = array();
             $length = strlen($mo);
             $big_endian = null;
