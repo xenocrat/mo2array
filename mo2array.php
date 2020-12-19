@@ -1,7 +1,7 @@
 <?php
     class mo2array {
         const MO2ARRAY_VERSION_MAJOR = 1;
-        const MO2ARRAY_VERSION_MINOR = 0;
+        const MO2ARRAY_VERSION_MINOR = 1;
 
         const MO_MAGIC_WORD_BE       = "950412de";
         const MO_MAGIC_WORD_LE       = "de120495";
