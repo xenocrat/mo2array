@@ -20,8 +20,13 @@ The above example will output:
     (
         [0] => Array
             (
-                [0] => 
-                [1] => Language: it_IT
+                [0] => Array
+                    (
+                        [0] => 
+                    )
+                [1] => Array
+                    (
+                        [0] => Language: it_IT
     MIME-Version: 1.0
     Content-Type: text/plain; charset=UTF-8
     Content-Transfer-Encoding: 8bit
@@ -31,16 +36,29 @@ The above example will output:
     Last-Translator: 
     Language-Team: 
     X-Generator: Poedit 2.2.4
+                    )
             )
         [1] => Array
             (
-                [0] => goodbye
-                [1] => arrivederci
+                [0] => Array
+                    (
+                        [0] => goodbye
+                    )
+                [1] => Array
+                    (
+                        [0] => arrivederci
+                    )
             )
         [2] => Array
             (
-                [0] => hello
-                [1] => ciao
+                [0] => Array
+                    (
+                        [0] => hello
+                    )
+                [1] => Array
+                    (
+                        [0] => ciao
+                    )
             )
         [3] => Array
             (
@@ -59,6 +77,6 @@ The above example will output:
 
 ## Return values
 
-Returns an array of the original strings and translation strings discovered in the .mo file. Returns `false` if the file contents cannot be decoded.
+Returns an array of the original strings and translation strings discovered in the .mo file, or `false` if the file contents cannot be decoded.
 
 Strings discovered in the .mo file are returned as encoded.
