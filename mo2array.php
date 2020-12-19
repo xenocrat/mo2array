@@ -67,13 +67,9 @@
                                       $tr_str_meta["offset"],
                                       $tr_str_meta["length"]);
 
-                # Discover msgid null-separated plural forms.
-                if (strpos($or_str_data, "\0") !== false)
-                    $or_str_data = explode("\0", $or_str_data);
-
-                # Discover msgstr null-separated plural forms.
-                if (strpos($tr_str_data, "\0") !== false)
-                    $tr_str_data = explode("\0", $tr_str_data);
+                # Discover null-separated plural forms.
+                $or_str_data = explode("\0", $or_str_data);
+                $tr_str_data = explode("\0", $tr_str_data);
 
                 $array[] = array($or_str_data, $tr_str_data);
             }
