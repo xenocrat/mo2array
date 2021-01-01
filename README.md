@@ -11,7 +11,7 @@ mo2array is a PHP class for decoding GNU gettext machine object (.mo) files to a
 Decode .mo file contents:
 
     $mo = file_get_contents("example.mo");
-    $array = mo2array::decode($mo);
+    $array = \xenocrat\mo2array::decode($mo);
     print_r($array);
 
 The above example will output:
