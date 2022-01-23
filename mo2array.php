@@ -2,14 +2,14 @@
     namespace xenocrat;
 
     class mo2array {
-        const MO2ARRAY_VERSION_MAJOR = 2;
+        const MO2ARRAY_VERSION_MAJOR = 3;
         const MO2ARRAY_VERSION_MINOR = 0;
 
         const MO_MAGIC_WORD_BE       = "950412de";
         const MO_MAGIC_WORD_LE       = "de120495";
         const MO_SIZEOF_HEADER       = 28;
 
-        public static function decode($mo) {
+        public static function decode($mo): array|false {
             $array = array();
             $length = strlen($mo);
             $big_endian = null;
