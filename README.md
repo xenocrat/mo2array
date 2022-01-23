@@ -4,7 +4,7 @@ mo2array is a PHP class for decoding GNU gettext machine object (.mo) files to a
 
 ## Requirements
 
-* PHP 5.4+
+* PHP 8.0+
 
 ## Usage
 
