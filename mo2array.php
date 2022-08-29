@@ -61,13 +61,17 @@
                 if ($tr_str_end > $length)
                     return false;
 
-                $or_str_data = substr($mo,
-                                      $or_str_meta["offset"],
-                                      $or_str_meta["length"]);
+                $or_str_data = substr(
+                    $mo,
+                    $or_str_meta["offset"],
+                    $or_str_meta["length"]
+                );
 
-                $tr_str_data = substr($mo,
-                                      $tr_str_meta["offset"],
-                                      $tr_str_meta["length"]);
+                $tr_str_data = substr(
+                    $mo,
+                    $tr_str_meta["offset"],
+                    $tr_str_meta["length"]
+                );
 
                 # Discover null-separated plural forms.
                 $or_str_data = explode("\0", $or_str_data);
