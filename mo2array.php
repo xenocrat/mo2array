@@ -9,13 +9,17 @@
         const MO_MAGIC_WORD_LE       = "de120495";
         const MO_SIZEOF_HEADER       = 28;
 
-        public static function decode($mo): array|false {
+        public static function decode($mo, $throw = false): array|false {
             $array = array();
             $length = strlen($mo);
             $big_endian = null;
 
-            if (self::MO_SIZEOF_HEADER > $length)
-                return false;
+            if (self::MO_SIZEOF_HEADER > $length) {
+                if (!$throw)
+                    return false;
+
+                throw new \Exception("File does not contain MO data.");
+            }
 
             $id = unpack("H8magic", $mo);
 
@@ -26,8 +30,12 @@
                 $big_endian = false;
 
             # Neither magic word matches; not a valid .mo file.
-            if (!isset($big_endian))
-                return false;
+            if (!isset($big_endian)) {
+                if (!$throw)
+                    return false;
+
+                throw new \Exception("File does not contain MO data.");
+            }
 
             $unpack = ($big_endian) ?
                 "Nformat/Nnum/Nor/Ntr" :
@@ -43,11 +51,19 @@
                 $or_str_offset = $mo_offset["or"] + ($i * 8);
                 $tr_str_offset = $mo_offset["tr"] + ($i * 8);
 
-                if (($or_str_offset + 8) > $length)
-                    return false;
+                if (($or_str_offset + 8) > $length) {
+                    if (!$throw)
+                        return false;
 
-                if (($tr_str_offset + 8) > $length)
-                    return false;
+                    throw new \Exception("File ended unexpectedly.");
+                }
+
+                if (($tr_str_offset + 8) > $length) {
+                    if (!$throw)
+                        return false;
+
+                    throw new \Exception("File ended unexpectedly.");
+                }
 
                 $or_str_meta = unpack($unpack, $mo, $or_str_offset);
                 $tr_str_meta = unpack($unpack, $mo, $tr_str_offset);
@@ -55,11 +71,19 @@
                 $or_str_end = $or_str_meta["offset"] + $or_str_meta["length"];
                 $tr_str_end = $tr_str_meta["offset"] + $tr_str_meta["length"];
 
-                if ($or_str_end > $length)
-                    return false;
+                if ($or_str_end > $length) {
+                    if (!$throw)
+                        return false;
 
-                if ($tr_str_end > $length)
-                    return false;
+                    throw new \Exception("File ended unexpectedly.");
+                }
+
+                if ($tr_str_end > $length) {
+                    if (!$throw)
+                        return false;
+
+                    throw new \Exception("File ended unexpectedly.");
+                }
 
                 $or_str_data = substr(
                     $mo,
