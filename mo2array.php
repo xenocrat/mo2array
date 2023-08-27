@@ -3,13 +3,16 @@
 
     class mo2array {
         const MO2ARRAY_VERSION_MAJOR = 3;
-        const MO2ARRAY_VERSION_MINOR = 1;
+        const MO2ARRAY_VERSION_MINOR = 2;
 
         const MO_MAGIC_WORD_BE       = "950412de";
         const MO_MAGIC_WORD_LE       = "de120495";
         const MO_SIZEOF_HEADER       = 28;
 
         public static function decode($mo, $throw = false): array|false {
+            if (!is_string($mo))
+                throw new \Exception("File must be supplied as a string.");
+
             $array = array();
             $length = strlen($mo);
             $big_endian = null;
