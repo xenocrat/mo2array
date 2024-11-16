@@ -2,14 +2,18 @@
     namespace xenocrat;
 
     class mo2array {
-        const MO2ARRAY_VERSION_MAJOR = 3;
-        const MO2ARRAY_VERSION_MINOR = 3;
+        const VERSION_MAJOR    = 3;
+        const VERSION_MINOR    = 4;
+        const VERSION_PATCH    = 0;
 
-        const MO_MAGIC_WORD_BE       = "950412de";
-        const MO_MAGIC_WORD_LE       = "de120495";
-        const MO_SIZEOF_HEADER       = 28;
+        const MO_MAGIC_WORD_BE = "950412de";
+        const MO_MAGIC_WORD_LE = "de120495";
+        const MO_SIZEOF_HEADER = 28;
 
-        public static function decode($mo, $throw = false): array|false {
+        public static function decode(
+            $mo,
+            $throw = false
+        ): array|false {
             if (!is_string($mo))
                 throw new \InvalidArgumentException(
                     "File must be supplied as a string."
